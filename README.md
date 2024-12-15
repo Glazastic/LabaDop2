@@ -33,15 +33,16 @@
 public class Car implements Driveable {
 
     // Поля класса, которые будут хранить информацию о марке, модели и году выпуска машины
-    private String make;   // Марка машины (например, Toyota)
-    private String model;  // Модель машины (например, Camry)
-    private int year;      // Год выпуска машины (например, 2023)
+    private String make;   // Марка машины 
+    private String model;  // Модель машины
+    private int year;      // Год выпуска машины
 
     // Конструктор класса для инициализации полей
     public Car(String make, String model, int year) {
-        this.make = make;       // Инициализация марки машины
-        this.model = model;     // Инициализация модели машины
-        this.year = year;       // Инициализация года выпуска машины
+        // Инициализация
+        this.make = make;       
+        this.model = model;     
+        this.year = year;       
     }
 
     // Геттер для марки машины
@@ -92,19 +93,16 @@ public abstract class Human {
     protected int age;
 
     // Геттер для получения возраста
-    // Этот метод позволяет получить значение возраста
     public int getAge() {
         return age;
     }
 
     // Сеттер для установки возраста
-    // Этот метод позволяет задать возраст человека
     public void setAge(int age) {
         this.age = age;
     }
 
     // Абстрактный метод для вывода информации о человеке
-    // Этот метод должен быть реализован в подклассах для конкретного вывода информации
     public abstract void displayInfo();
 }
 ```
@@ -116,11 +114,8 @@ public abstract class Human {
 public class Women extends Human {
 
     // Переопределяем метод displayInfo() из абстрактного класса Human
-    // Этот метод выводит информацию о возрасте женщины в Logcat
     @Override
     public void displayInfo() {
-        // Используем Log.d() для вывода отладочной информации в Logcat
-        // Формируем строку: "Это женщина, ей <возраст> лет"
         Log.d("HumanInfo", "Это женщина, ей " + age +" лет");
     }
 }
@@ -135,8 +130,6 @@ public class Men extends Human {
     // Переопределяем метод displayInfo() из класса Human
     @Override
     public void displayInfo() {
-        // Используем Log.d() для вывода информации о мужчине в Logcat
-        // Тег "HumanInfo" помогает фильтровать логи
         Log.d("HumanInfo", "Это мужчина, ему " + age + " лет");
     }
 }
@@ -146,11 +139,8 @@ public class Men extends Human {
 Интерфейс `Driveable` с одним методом `go()`, который реализуется в классе `Car`.
 
 ```java
-// Интерфейс Driveable объявляет метод go(), который должен быть реализован в классе, который будет имплементировать этот интерфейс
 public interface Driveable {
 
-    // Метод go() будет описывать действия, которые должны быть выполнены для объекта, который может двигаться.
-    // Так как это интерфейс, метод не имеет реализации, его должны реализовать конкретные классы.
     void go();
 }
 
@@ -163,14 +153,13 @@ public interface Driveable {
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textViewOutput; // Ссылка на TextView для вывода
+    private TextView textViewOutput; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Инициализируем TextView
         textViewOutput = findViewById(R.id.textViewOutput);
     }
 
@@ -195,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
                 "Это женщина, ей " + woman.getAge() + " лет\n" +
                 "Это мужчина, ему " + man.getAge() + " лет";
 
-        // Обновляем TextView с полученной строкой
         textViewOutput.setText(output); // Отображаем в TextView
     }
 }
